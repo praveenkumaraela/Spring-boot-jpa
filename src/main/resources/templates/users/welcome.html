@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/adduser}" th:object="${user}" method="post">
+<table cellpadding="2" cellspacing="2">
+<tr>
+<td>First Nameaa</td>
+<td><input type="text" th:field="*{firstname}"/></td>
+<td>Last Name</td>
+<td><input type="text" th:field="*{lastname}"/></td>
+<td>Mobile</td>
+<td><input type="text" th:field="*{mobile}"/></td>
+<td>Email</td>
+<td><input type="text" th:field="*{email}"/></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type="submit" value="submit"/></td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
