@@ -1,0 +1,27 @@
+
+
+READMe
+
+Git Project
+https://github.com/praveenkumaraela/Spring-boot-jpa.git
+
+Download the project using git clone
+sudo git clone https://github.com/praveenkumaraela/Spring-boot-jpa.git
+
+Clean and Build the project`
+sudo mvn clean install
+
+Run the application from target location.
+java -jar target/Spring-Boot-jpa-0.0.1-SNAPSHOT.jar
+
+Port configured=8888
+context-path=/PraveenApps
+
+HealthZ
+http://localhost:8888/PraveenApps/healthz
+
+Welcome
+
+
+other projects
+ https://github.com/intelliqittrainings/FunctionalTesting.git

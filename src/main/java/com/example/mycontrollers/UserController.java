@@ -1,37 +1,23 @@
 package com.example.mycontrollers;
 
+import com.example.demo.basicconfiguration.BasicConfiguration;
+import com.example.demo.model.ErrorDetails;
+import com.example.demo.model.UserRecord;
+import com.example.demo.service.UserService;
+import customexceptions.UserNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.example.demo.basicconfiguration.BasicConfiguration;
-import com.example.demo.model.ErrorDetails;
-import com.example.demo.model.UserRecord;
-import com.example.demo.service.UserService;
-
-import customexceptions.UserNotFoundException;
 
 
 @RestController
@@ -50,11 +36,7 @@ public class UserController {
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	
-	@GetMapping("/welcome")
-	public String callWelcome() {
-		return userService.getWelcomeMessage();
-	}
+
 
 	@GetMapping("/MyConfiguredProperty")
 	public Map<String, Object> getBasicConfiguredProp() {
@@ -65,13 +47,6 @@ public class UserController {
 		props.put("number", basicConfig.getNumber());
 		return props;
 	}
-	/*@RequestMapping(method=RequestMethod.GET)
-	//@GetMapping("/")
-	public String getUser(ModelMap modelmap){
-		modelmap.put("user", new UserRecord());
-		
-		return "users/welcome";
-	}*/
 
 	//@RequestMapping(value="/users",method=RequestMethod.GET)
 	@GetMapping("/users")
